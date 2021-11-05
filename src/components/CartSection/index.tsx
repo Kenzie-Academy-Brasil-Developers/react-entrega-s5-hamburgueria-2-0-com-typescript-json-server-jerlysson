@@ -45,7 +45,7 @@ const CartSection = ({ setShowCart }: ICartSection) => {
     (accumulator, product) => accumulator + parseFloat(product.price),
     0
   );
-  console.log(cartFiltred);
+  console.log(cartProducts);
   return (
     <Cart>
       <CartHeader>
@@ -62,38 +62,32 @@ const CartSection = ({ setShowCart }: ICartSection) => {
           </>
         )}
         <ul>
-          {cartFiltred.map((product, idx) => {
-            const filter = cartProducts.filter(
-              (item) => item.id === product.id
-            );
-
-            return (
-              <li key={idx}>
-                <CartProductCard>
-                  <Frame>
-                    <Image src={product.image} alt={product.name} />
-                  </Frame>
-                  <ProductInfo>
-                    <ProductName>{product.name}</ProductName>
-                    <Counter>
-                      <SubButton onClick={() => removeToCart(product.id)}>
-                        <MdOutlineRemoveCircle />
-                      </SubButton>
-                      <span>{filter.length}</span>
-                      <AddButton onClick={() => addToCart(product)}>
-                        <MdAddCircle />
-                      </AddButton>
-                    </Counter>
-                  </ProductInfo>
-                  <RemoveContainer>
-                    <button onClick={() => removeOneInCart(product.id)}>
-                      <FaTrash />
-                    </button>
-                  </RemoveContainer>
-                </CartProductCard>
-              </li>
-            );
-          })}
+          {cartProducts.map((product) => (
+            <li key={product.id}>
+              <CartProductCard>
+                <Frame>
+                  <Image src={product.image} alt={product.name} />
+                </Frame>
+                <ProductInfo>
+                  <ProductName>{product.name}</ProductName>
+                  <Counter>
+                    <SubButton onClick={() => removeToCart(product.id)}>
+                      <MdOutlineRemoveCircle />
+                    </SubButton>
+                    <span>{cartProducts.length}</span>
+                    <AddButton onClick={() => addToCart(product)}>
+                      <MdAddCircle />
+                    </AddButton>
+                  </Counter>
+                </ProductInfo>
+                <RemoveContainer>
+                  <button onClick={() => removeOneInCart(product.id)}>
+                    <FaTrash />
+                  </button>
+                </RemoveContainer>
+              </CartProductCard>
+            </li>
+          ))}
         </ul>
 
         {cartFiltred.length > 0 && (
