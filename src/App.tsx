@@ -1,12 +1,13 @@
-import "./App.css";
+import GlobalStyles from "./assets/styles/global";
 import Routes from "./routes";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
+    <div className="react-entrega-s5-hamburgueria-2-0-com-typescript-json-server">
+      <GlobalStyles />
       <Routes />
     </div>
   );
-}
+};
 
 export default App;
