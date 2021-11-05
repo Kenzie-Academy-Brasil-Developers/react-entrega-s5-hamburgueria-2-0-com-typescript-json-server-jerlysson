@@ -25,6 +25,7 @@ import {
   Total,
 } from "./style";
 import { FaTrash } from "react-icons/fa";
+import { MdOutlineRemoveCircle, MdAddCircle } from "react-icons/md";
 import { ICartSection } from "../../assets/types";
 
 const CartSection = ({ setShowCart }: ICartSection) => {
@@ -56,8 +57,8 @@ const CartSection = ({ setShowCart }: ICartSection) => {
       <CartBody>
         {cartFiltred.length === 0 && (
           <>
-            <CartTitle>Sua sacola está vazia</CartTitle>
-            <CartInfo>adicione itens </CartInfo>
+            <CartTitle>Seu carrinho está vazia</CartTitle>
+            <CartInfo>adicione itens! </CartInfo>
           </>
         )}
         <ul>
@@ -76,11 +77,11 @@ const CartSection = ({ setShowCart }: ICartSection) => {
                     <ProductName>{product.name}</ProductName>
                     <Counter>
                       <SubButton onClick={() => removeToCart(product.id)}>
-                        -
+                        <MdOutlineRemoveCircle />
                       </SubButton>
                       <span>{filter.length}</span>
                       <AddButton onClick={() => addToCart(product)}>
-                        +
+                        <MdAddCircle />
                       </AddButton>
                     </Counter>
                   </ProductInfo>
