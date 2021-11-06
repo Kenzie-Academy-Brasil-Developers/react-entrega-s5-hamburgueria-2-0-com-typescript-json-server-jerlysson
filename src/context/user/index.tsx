@@ -33,7 +33,7 @@ export const UserProvider = ({ children }: IChildren) => {
     api
       .post(`/users`, user)
       .then((_) => login(user))
-      .catch((_) => console.error("Miss"));
+      .catch((_) => console.error("Missed"));
   };
 
   return (

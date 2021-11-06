@@ -11,6 +11,7 @@ export const CartProvider = ({ children }: IChildren) => {
   );
 
   const addToCart = (product: IProduct) => {
+    product.quantity = 1;
     setCartProducts([...cartProducts, product]);
   };
 

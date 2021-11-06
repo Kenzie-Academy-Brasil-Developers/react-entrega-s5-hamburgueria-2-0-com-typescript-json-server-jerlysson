@@ -74,8 +74,8 @@ const CartSection = ({ setShowCart }: ICartSection) => {
                     <SubButton onClick={() => removeToCart(product.id)}>
                       <MdOutlineRemoveCircle />
                     </SubButton>
-                    <span>{cartProducts.length}</span>
-                    <AddButton onClick={() => addToCart(product)}>
+                    <span>{product.quantity}</span>
+                    <AddButton onClick={() => (product.quantity = +1)}>
                       <MdAddCircle />
                     </AddButton>
                   </Counter>
